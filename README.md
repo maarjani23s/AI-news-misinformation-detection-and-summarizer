@@ -109,7 +109,7 @@ The following components were developed as part of this project:
 2. **Bias Detection (`detect_bias(statement)`):**
    - Checks for bias using a predefined set of keywords (e.g., "always", "never", "everyone").
 
-3. **Combined Workflow (`process_example_with_bias(statement)`):**
+3. **Combined Workflow (`process_example(statement, reference_summary= None)`):**
    - Produces a summary, detects bias, and classifies misinformation for a given statement.
 
 ---
