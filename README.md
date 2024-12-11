@@ -11,7 +11,7 @@ This project implements a system to classify misinformation in news articles and
 ## Code Organization
 
 ### Files and Their Descriptions
-1. **`main_script.py`:**
+1. **`code.py`:**
    - Core implementation of the system, including:
      - Data preprocessing: Cleaning, encoding, tokenization, and integration of auxiliary features.
      - Model definition and training: Custom BERT-based classifier for misinformation detection.
