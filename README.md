@@ -127,8 +127,8 @@ The following components were developed as part of this project:
    Ensure the dataset files (train.tsv, valid.tsv, test.tsv) are in the dataset_liar directory.
    ```bash
    python code.py
-4. For seperate testing:
+4. For seperate testing input:
    ```bash
    Modify the `example_statement` variable in the script to test a new input. Also add a reference summary if you want to calculate the rogue score.
-5. Reuse preprocessed data:nPreprocessed files are saved in the processed_data/ directory after your initial run. Adjust the script to load these files to skip preprocessing during future runs.
+5. Reuse preprocessed data: Preprocessed files are saved in the processed_data/ directory after your initial run. Adjust the script to load these files to skip preprocessing during future runs.
 
