@@ -37,19 +37,22 @@ This project implements a system to classify misinformation in news articles and
 ---
 
 ### Key Classes and Functions (Developed by me)
-1. **`CustomBERTClassifier`:**
+1. **`Data preprocessing functions`:**
+   - A comprehensive pipeline that cleans text, encodes labels, and integrates auxiliary features (e.g., barely_true_counts) with tokenized inputs for model training.
+     
+2.  **`CustomBERTClassifier`:**
    - A multi-layer BERT-based classifier that incorporates auxiliary features (e.g., truthfulness counts) with BERT embeddings for better prediction accuracy.
 
-2. **`train_one_epoch`:**
+3. **`train_one_epoch`:**
    - Handles a single epoch of model training, including gradient updates and loss computation.
 
-3. **`evaluate_model`:**
+4. **`evaluate_model`:**
    - Evaluates the model on a validation or test dataset and provides metrics like accuracy and a classification report.
 
-4. **`generate_summary`:**
+5. **`generate_summary`:**
    - Uses a pre-trained T5 model to generate concise summaries from input text.
 
-5. **`process_example_with_bias`:**
+6. **`process_example`:**
    - Combines summarization, bias detection, and misinformation classification for a single input statement.
 
 ---
