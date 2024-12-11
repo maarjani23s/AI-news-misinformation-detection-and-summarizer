@@ -119,7 +119,6 @@ The following components were developed as part of this project:
 
 ## Running Instructions
 
-### Prerequisites
 1. Install dependencies:
    ```bash
    pip install torch transformers sklearn rouge_score matplotlib
