@@ -8,26 +8,69 @@ This project implements a system to classify misinformation in news articles and
 
 ---
 
-## Code Organization
-
-### Files and Their Descriptions
+### Code Organization
 1. **`code.py`:**
-   - Core implementation of the system, including:
-     - Data preprocessing: Cleaning, encoding, tokenization, and integration of auxiliary features.
-     - Model definition and training: Custom BERT-based classifier for misinformation detection.
-     - T5 summarization and ROUGE evaluation.
-     - Bias detection module.
-     - End-to-end process for prediction with summary, bias detection, and classification.
+   - Core implementation of the pipeline, including:
+     - Data preprocessing:
+       - Functions like `load_dataset`, `preprocess_text`, and `tokenize_and_format` prepare the dataset for model training.
+     - Custom BERT Classifier:
+       - Implements `CustomBERTClassifier` to integrate BERT embeddings with auxiliary features for improved classification.
+     - Training Functions:
+       - Functions such as `train_one_epoch` and `evaluate_model` handle model training and validation.
+     - Summarization:
+       - `generate_summary` generates concise summaries using a T5-based model.
+     - Bias Detection:
+       - `detect_bias` flags potentially biased summaries based on keywords.
+     - End-to-End Prediction:
+       - `process_example_with_bias` combines summarization, bias detection, and classification.
 
-2. **Dataset Files (`train.tsv`, `valid.tsv`, `test.tsv`):**
-   - LIAR dataset files used for training, validation, and testing.
-   - These contain labeled data for the classification task.
+2. **Dataset Files:**
+   - LIAR Dataset files (`train.tsv`, `valid.tsv`, `test.tsv`) for training, validation, and testing.
+   - Saved preprocessed files in `processed_data/` can be reused in future runs.
 
-3. **Preprocessed Data Directory (`processed_data/`):**
-   - Contains preprocessed dataset files (`train_processed.csv`, `valid_processed.csv`, `test_processed.csv`) for efficient and reproducible experimentation.
+3. **Outputs:**
+   - Trained model checkpoints (`best_classifier_model.pt`).
+   - ROUGE score evaluations for summaries.
+   - Classification reports for validation and testing datasets.
+
 
 ---
 
+### Key Classes and Functions
+1. **`CustomBERTClassifier`:**
+   - A multi-layer BERT-based classifier that incorporates auxiliary features (e.g., truthfulness counts) with BERT embeddings for better prediction accuracy.
+
+2. **`train_one_epoch`:**
+   - Handles a single epoch of model training, including gradient updates and loss computation.
+
+3. **`evaluate_model`:**
+   - Evaluates the model on a validation or test dataset and provides metrics like accuracy and a classification report.
+
+4. **`generate_summary`:**
+   - Uses a pre-trained T5 model to generate concise summaries from input text.
+
+5. **`process_example_with_bias`:**
+   - Combines summarization, bias detection, and misinformation classification for a single input statement.
+
+---
+
+### Developed Components
+The following components were developed as part of this project:
+- **Data Preprocessing Pipeline:**
+  - Added auxiliary feature integration (`barely_true_counts`, etc.) into tokenization.
+  - Improved text cleaning logic to handle noisy inputs.
+
+- **Custom BERT Classifier:**
+  - Enhanced BERT embeddings with auxiliary features.
+  - Added dropout layers and ReLU activations to improve model generalization.
+
+- **Bias Detection Module:**
+  - Designed a keyword-based approach to flag potentially biased summaries.
+
+- **Integration of Summarization Module:**
+  - Integrated a T5 model for summarization and evaluated its quality using ROUGE scores.
+
+---
 ## Code Details and Comments
 
 ### Data Preprocessing
@@ -77,4 +120,12 @@ This project implements a system to classify misinformation in news articles and
 1. Install dependencies:
    ```bash
    pip install torch transformers sklearn rouge_score matplotlib
+2. Running the code for training:
+   Ensure the dataset files (train.tsv, valid.tsv, test.tsv) are in the dataset_liar directory.
+   ```bash
+   python code.py
+4. For seperate testing:
+   ```bash
+   Modify the `example_statement` variable in the script to test a new input.
+5. Reuse preprocessed data:nPreprocessed files are saved in the processed_data/ directory after your initial run. Adjust the script to load these files to skip preprocessing during future runs.
 
