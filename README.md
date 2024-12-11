@@ -22,7 +22,7 @@ This project implements a system to classify misinformation in news articles and
      - Bias Detection:
        - `detect_bias` flags potentially biased summaries based on keywords.
      - End-to-End Prediction:
-       - `process_example_with_bias` combines summarization, bias detection, and classification.
+       - `process_example` combines summarization, bias detection, and classification.
 
 2. **Dataset Files:**
    - LIAR Dataset files (`train.tsv`, `valid.tsv`, `test.tsv`) for training, validation, and testing.
@@ -129,6 +129,6 @@ The following components were developed as part of this project:
    python code.py
 4. For seperate testing:
    ```bash
-   Modify the `example_statement` variable in the script to test a new input.
+   Modify the `example_statement` variable in the script to test a new input. Also add a reference summary if you want to calculate the rogue score.
 5. Reuse preprocessed data:nPreprocessed files are saved in the processed_data/ directory after your initial run. Adjust the script to load these files to skip preprocessing during future runs.
 
