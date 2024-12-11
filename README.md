@@ -36,7 +36,7 @@ This project implements a system to classify misinformation in news articles and
 
 ---
 
-### Key Classes and Functions
+### Key Classes and Functions (Developed by me)
 1. **`CustomBERTClassifier`:**
    - A multi-layer BERT-based classifier that incorporates auxiliary features (e.g., truthfulness counts) with BERT embeddings for better prediction accuracy.
 
