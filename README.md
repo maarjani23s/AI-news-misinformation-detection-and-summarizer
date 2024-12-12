@@ -1,7 +1,10 @@
 # AI-news-misinformation-detection-and-summarizer
 
-By : Maarjani Sanghavi 
+By : Maarjani Sanghavi (mhsangha@ncsu.edu)
+
 For course ECE 592 Advanced Deep Learning
+
+NC State University
 
 ## Overview
 This project implements a system to classify misinformation in news articles and generate concise summaries. The system combines a BERT-based classification model with a T5-based summarizer and includes a bias detection module to flag potentially biased statements.
